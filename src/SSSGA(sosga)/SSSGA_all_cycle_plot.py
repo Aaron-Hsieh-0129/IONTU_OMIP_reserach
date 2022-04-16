@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+SSSGA_cycle_GTIAF = np.loadtxt("SSSGA_cycle_GTIAF_QVOLa.txt")
+SSSGA_cycle_GTJRA_QVOLa = np.loadtxt("SSSGA_cycle_GTJRA_QVOLa.txt")
+SSSGA_observation = np.loadtxt("SSSGA_observation.txt")
+
+plt.tight_layout()
+plt.figure(figsize=(15, 4))
+plt.grid(linestyle='--')
+plt.xlim([0, 371])
+plt.ylim([33.96, 34.7])
+plt.ylabel("Salinity [psu]")
+plt.text(350, 34.64, "Unit: psu", fontsize=12)
+plt.plot(SSSGA_cycle_GTIAF, lw=3, color='#0303FF')
+plt.plot(SSSGA_cycle_GTJRA_QVOLa, lw=3, color='#FF0021')
+# plt.axhline(SSSGA_observation, color='k', lw=3)
+plt.legend(['IAF', 'JRA'], loc="upper left")
+
+plt.axvline(61, linestyle='--', color='#0EA830')
+plt.axvline(62, linestyle='--', color='#FF04FA')
+plt.axvline(122, linestyle='--', color='#0EA830')
+plt.axvline(124, linestyle='--', color='#FF04FA')
+plt.axvline(183, linestyle='--', color='#0EA830')
+plt.axvline(186, linestyle='--', color='#FF04FA')
+plt.axvline(244, linestyle='--', color='#0EA830')
+plt.axvline(248, linestyle='--', color='#FF04FA')
+plt.axvline(305, linestyle='--', color='#0EA830')
+plt.axvline(310, linestyle='--', color='#FF04FA')
+plt.show()

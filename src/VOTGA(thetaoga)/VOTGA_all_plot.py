@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+VOTGA_cycle_GTIAF_QVOLa = np.loadtxt("VOTGA_cycle_GTIAF_QVOLa.txt")
+VOTGA_cycle_GTJRA_QVOLa = np.loadtxt("VOTGA_cycle_GTJRA_QVOLa.txt")
+VOTGA_observation = np.loadtxt("VOTGA_observation.txt")
+
+plt.tight_layout()
+plt.figure(figsize=(15, 4))
+plt.grid(linestyle='--')
+plt.xlim([0, 372])
+plt.ylim([3.5, 4.3])
+plt.ylabel("Temperature [$\degree$C]")
+plt.text(352, 4.235, "Unit: $\degree$C", fontsize=12)
+plt.plot(VOTGA_cycle_GTIAF_QVOLa, lw=3, color='#0303FF')
+plt.plot(VOTGA_cycle_GTJRA_QVOLa, lw=3, color='#FF0021')
+# plt.axhline(VOTGA_observation, color='k', lw=3)
+plt.legend(['IAF', 'JRA'], loc="upper left")
+
+plt.axvline(61, linestyle='--', color='#0EA830')
+plt.axvline(62, linestyle='--', color='#FF04FA')
+plt.axvline(122, linestyle='--', color='#0EA830')
+plt.axvline(124, linestyle='--', color='#FF04FA')
+plt.axvline(183, linestyle='--', color='#0EA830')
+plt.axvline(186, linestyle='--', color='#FF04FA')
+plt.axvline(244, linestyle='--', color='#0EA830')
+plt.axvline(248, linestyle='--', color='#FF04FA')
+plt.axvline(305, linestyle='--', color='#0EA830')
+plt.axvline(310, linestyle='--', color='#FF04FA')
+plt.show()
